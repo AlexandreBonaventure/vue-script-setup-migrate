@@ -1,19 +1,17 @@
 <script lang="ts">
-import TestComponent from './TestComponent.vue';
 export default {
-  components: {
-    TestComponent
-  },
-  props: {
-    msg: {
-      type: String,
-      required: true
-    }
-  },
   inheritAttrs: false
 };
 </script>
 <script lang="ts" setup>
+import { computed } from 'vue';
+import TestComponent from './TestComponent.vue';
+const props = defineProps({
+  msg: {
+    type: String,
+    required: true
+  }
+});
 const computedMsg = computed(() => props.msg + 'bar');
 </script>
 <template>

@@ -1,4 +1,5 @@
 <script lang="ts">
+import { computed } from 'vue';
 import TestComponent from './TestComponent.vue';
 export default {
   components: {
@@ -11,7 +12,7 @@ export default {
     }
   },
   inheritAttrs: false,
-  setup () {
+  setup (props) {
     const computedMsg = computed(() => props.msg + 'bar');
     return {
       computedMsg,
