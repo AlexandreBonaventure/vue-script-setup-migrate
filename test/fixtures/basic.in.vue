@@ -11,6 +11,9 @@ export default {
       required: true
     }
   },
+  emits: {
+    'update:msg': val => val === 'foo'
+  },
   inheritAttrs: false,
   setup (props) {
     const computedMsg = computed(() => props.msg + 'bar');

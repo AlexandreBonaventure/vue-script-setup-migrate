@@ -12,6 +12,9 @@ const props = defineProps({
     required: true
   }
 });
+const emit = defineEmits({
+  'update:msg': val => val === 'foo'
+});
 const computedMsg = computed(() => props.msg + 'bar');
 </script>
 <template>

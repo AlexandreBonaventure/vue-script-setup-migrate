@@ -5,6 +5,7 @@ import generate from '@babel/generator'
 import * as t from '@babel/types'
 import traverse, { Node } from '@babel/traverse'
 import template from '@babel/template'
+import { PassThrough } from 'stream'
 
 function printBlock (block: Pick<SFCBlock, 'attrs'|'type'|'content'>) {
     const attrsString = Object.keys(block.attrs)
@@ -33,60 +34,62 @@ export default function transformCode (code: string): string {
       let componentDeclarationNode: Node | undefined = undefined
       let setupFunctionNode: Node | undefined = undefined
       let propsDeclarationNode: Node | undefined = undefined
-      const componentChildrenNode = new WeakSet()
-      walk(ast, {
-        enter(node, parent) {
-          if (
-            node.type === 'ExportDefaultDeclaration' &&
-            node.declaration.type === 'ObjectExpression'
-          ) {
+      let emitsDeclarationNode: Node | undefined = undefined
+      traverse(ast, {
+        ExportDefaultDeclaration(path) {
+          const { node } = path
+          if (node.declaration.type === 'ObjectExpression') {
             debug('Found default export: component with object declaration')
             const declarationNode = node.declaration
-            componentChildrenNode.add(declarationNode)
             componentDeclarationNode = declarationNode
-          }
-          if (
-            node.type === 'ExportDefaultDeclaration' &&
-            node.declaration.type === 'CallExpression' &&
-            node.declaration.callee.name === 'defineComponent'
-          ) {
-            debug(
-              'Found default export: component with defineComponent declaration'
-            )
+          } else if (node.declaration.type === 'CallExpression' &&
+            node.declaration.callee.name === 'defineComponent') {
+            debug('Found default export: component with defineComponent declaration')
             const declarationNode = node.declaration.arguments[0]
-            componentChildrenNode.add(declarationNode)
             componentDeclarationNode = declarationNode
           }
-          const isIntoAComponent = componentChildrenNode.has(parent)
-          if (isIntoAComponent) {
-            componentChildrenNode.add(node)
-            if (
-              'key' in node &&
-              node.key.name === 'setup' &&
-              parent === componentDeclarationNode
-            ) {
-              debug('Found setup function')
-              setupFunctionNode = node // get inside block
-              this.remove()
-            }
-            if (
-              'key' in node &&
-              node.key.name === 'props' &&
-              parent === componentDeclarationNode
-            ) {
-              debug('Found props declaration')
-              propsDeclarationNode = node.value
-              this.remove()
-            }
-            if (
-              'key' in node &&
-              node.key.name === 'components' &&
-              parent === componentDeclarationNode
-            ) {
-            
-              debug('Found components declaration')
-              this.remove()
-            }
+          if (componentDeclarationNode) {
+            path.stop();
+            path.traverse({
+              enter(path) {
+                const { node, parent } = path
+                  if (
+                    'key' in node &&
+                    node.key.name === 'setup' &&
+                    parent === componentDeclarationNode
+                  ) {
+                    debug('Found setup function')
+                    setupFunctionNode = node // get inside block
+                    path.remove()
+                  }
+                  if (
+                    'key' in node &&
+                    node.key.name === 'props' &&
+                    parent === componentDeclarationNode
+                  ) {
+                    debug('Found props declaration')
+                    propsDeclarationNode = node.value
+                    path.remove()
+                  }
+                  if (
+                    'key' in node &&
+                    node.key.name === 'emits' &&
+                    parent === componentDeclarationNode
+                  ) {
+                    debug('Found emits declaration')
+                    emitsDeclarationNode = node.value
+                    path.remove()
+                  }
+                  if (
+                    'key' in node &&
+                    node.key.name === 'components' &&
+                    parent === componentDeclarationNode
+                  ) {
+                    debug('Found components declaration')
+                    path.remove()
+                  }
+              },
+            })
           }
         },
       })
@@ -106,6 +109,14 @@ export default function transformCode (code: string): string {
         },
       })
       const scriptSetupCodeAst = t.program(setupFunctionNode.body.body)
+      // handle emits
+      if (propsDeclarationNode) {
+        const propsTemplate = template('const emit = defineEmits(%%emits%%)')
+        const ast = propsTemplate({
+          emits: emitsDeclarationNode,
+        })        
+        scriptSetupCodeAst.body.unshift(ast)
+      }
       // handle props
       if (propsDeclarationNode) {
         const propsTemplate = template('const props = defineProps(%%props%%)')
