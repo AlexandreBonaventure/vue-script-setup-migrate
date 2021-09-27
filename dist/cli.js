@@ -84909,7 +84909,8 @@ function transformCode(code) {
     }
     const codeScript = parsedCode.descriptor.script;
     const ast = (0, import_compiler_sfc.babelParse)(codeScript.content, {
-      sourceType: "module"
+      sourceType: "module",
+      plugins: ["typescript"]
     });
     let componentDeclarationNode = void 0;
     let setupFunctionNode = void 0;
@@ -84988,7 +84989,7 @@ function transformCode(code) {
     const regularScriptBlock = componentDeclarationNode.properties.length && {
       type: "script",
       attrs: codeScript.attrs,
-      content: (0, import_generator.default)(ast).code
+      content: (0, import_generator.default)(ast, {}).code
     };
     const setupScriptBlock = {
       type: "script",
