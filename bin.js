@@ -15,5 +15,5 @@ if (existsSync(absPnpApiPath)) {
   }
 }
 
-require('ts-node').register();
-require('./src/cli.ts');
+absRequire('ts-node').register()
+absRequire('./src/cli.ts')
