@@ -30,7 +30,8 @@ export default function transformCode (code: string): string {
       const codeScript = parsedCode.descriptor.script!
       const ast = babelParse(codeScript.content, {
         sourceType: 'module',
-      })
+        plugins: ['typescript'],
+      })      
       let componentDeclarationNode: Node | undefined = undefined
       let setupFunctionNode: Node | undefined = undefined
       let propsDeclarationNode: Node | undefined = undefined

@@ -8,7 +8,7 @@ import { computed } from 'vue';
 import TestComponent from './TestComponent.vue';
 const props = defineProps({
   msg: {
-    type: String,
+    type: (String as () => 'literal'),
     required: true
   }
 });

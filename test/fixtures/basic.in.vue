@@ -7,7 +7,7 @@ export default {
   },
   props: {
     msg: {
-      type: String,
+      type: String as () => 'literal',
       required: true
     }
   },
