@@ -3,7 +3,11 @@
   "packageManager": "yarn@3.0.1",
   "scripts": {
     "dev": "DEBUG=* ts-node src/index.ts",
+    "dev-cli": "DEBUG=* ts-node src/cli.ts",
     "test": "jest"
+  },
+  "bin": {
+    "vue-script-setup-migrate": "./bin.js"
   },
   "devDependencies": {
     "@babel/generator": "^7.15.0",
@@ -23,6 +27,7 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "debug": "^4.3.2"
+    "debug": "^4.3.2",
+    "fast-glob": "^3.2.7"
   }
 }
