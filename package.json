@@ -4,11 +4,10 @@
   "scripts": {
     "dev": "DEBUG=* ts-node src/index.ts",
     "dev-cli": "DEBUG=* ts-node src/cli.ts",
+    "build": "node build.js",
     "test": "jest"
   },
-  "bin": {
-    "vue-script-setup-migrate": "./bin.js"
-  },
+  "bin": "./bin.js",
   "devDependencies": {
     "@babel/generator": "^7.15.0",
     "@babel/template": "^7.14.5",
@@ -16,17 +15,21 @@
     "@babel/types": "^7.15.0",
     "@swc/core": "^1.2.80",
     "@swc/jest": "^0.2.2",
+    "@tsconfig/node12": "^1.0.9",
     "@types/babel__generator": "^7.6.3",
     "@types/babel__template": "^7.4.1",
     "@types/babel__traverse": "^7.14.2",
     "@types/debug": "^4.1.7",
     "@types/node": "^16.7.1",
     "@vue/compiler-sfc": "^3.2.4",
+    "esbuild": "^0.13.2",
     "jest": "^27.0.6",
+    "rollup": "^2.57.0",
     "ts-node": "^10.2.1",
     "typescript": "^4.3.5"
   },
   "dependencies": {
+    "@yarnpkg/esbuild-plugin-pnp": "^1.0.1-rc.8",
     "debug": "^4.3.2",
     "fast-glob": "^3.2.7"
   }

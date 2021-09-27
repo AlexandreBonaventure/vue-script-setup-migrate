@@ -1,19 +1,2 @@
 #!/usr/bin/env node
-const { existsSync } = require(`fs`)
-const { createRequire, createRequireFromPath } = require(`module`)
-const { resolve } = require(`path`)
-
-const relPnpApiPath = './.pnp.cjs'
-
-const absPnpApiPath = resolve(__dirname, relPnpApiPath)
-const absRequire = (createRequire || createRequireFromPath)(absPnpApiPath)
-
-if (existsSync(absPnpApiPath)) {
-  if (!process.versions.pnp) {
-    // Setup the environment to be able to require typescript/bin/tsc
-    require(absPnpApiPath).setup()
-  }
-}
-
-absRequire('ts-node').register()
-absRequire('./src/cli.ts')
+require('./dist/cli.js')

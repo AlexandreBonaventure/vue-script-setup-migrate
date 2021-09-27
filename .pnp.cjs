@@ -41,15 +41,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/types", "npm:7.15.0"],
             ["@swc/core", "npm:1.2.80"],
             ["@swc/jest", "virtual:b0f2f57492fe474cd7a30ac71f57e7b0b28b1ed84f72a736a0b9d1e7ab0b3cd8d6418ae96345b7667845c6e1b6a6b6e6228602f0a3b2ee529b03d9fb5f1d3ce3#npm:0.2.2"],
+            ["@tsconfig/node12", "npm:1.0.9"],
             ["@types/babel__generator", "npm:7.6.3"],
             ["@types/babel__template", "npm:7.4.1"],
             ["@types/babel__traverse", "npm:7.14.2"],
             ["@types/debug", "npm:4.1.7"],
             ["@types/node", "npm:16.7.1"],
             ["@vue/compiler-sfc", "npm:3.2.4"],
+            ["@yarnpkg/esbuild-plugin-pnp", "virtual:b0f2f57492fe474cd7a30ac71f57e7b0b28b1ed84f72a736a0b9d1e7ab0b3cd8d6418ae96345b7667845c6e1b6a6b6e6228602f0a3b2ee529b03d9fb5f1d3ce3#npm:1.0.1-rc.8"],
             ["debug", "virtual:c9bc8b4682dae1ac36fcb97c7fccfb86af01a1f6fc48eaf83d9bd00fb14f9e1f641a2409ef7e079b4e0ed4a16267412a60166cc456172f4a4f9469cc6ef7c07b#npm:4.3.2"],
+            ["esbuild", "npm:0.13.2"],
             ["fast-glob", "npm:3.2.7"],
             ["jest", "virtual:b0f2f57492fe474cd7a30ac71f57e7b0b28b1ed84f72a736a0b9d1e7ab0b3cd8d6418ae96345b7667845c6e1b6a6b6e6228602f0a3b2ee529b03d9fb5f1d3ce3#npm:27.0.6"],
+            ["rollup", "npm:2.57.0"],
             ["ts-node", "virtual:b0f2f57492fe474cd7a30ac71f57e7b0b28b1ed84f72a736a0b9d1e7ab0b3cd8d6418ae96345b7667845c6e1b6a6b6e6228602f0a3b2ee529b03d9fb5f1d3ce3#npm:10.2.1"],
             ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
           ],
@@ -1604,6 +1608,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@yarnpkg/esbuild-plugin-pnp", [
+        ["npm:1.0.1-rc.8", {
+          "packageLocation": "./.yarn/cache/@yarnpkg-esbuild-plugin-pnp-npm-1.0.1-rc.8-ee52178308-7db5262caf.zip/node_modules/@yarnpkg/esbuild-plugin-pnp/",
+          "packageDependencies": [
+            ["@yarnpkg/esbuild-plugin-pnp", "npm:1.0.1-rc.8"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:b0f2f57492fe474cd7a30ac71f57e7b0b28b1ed84f72a736a0b9d1e7ab0b3cd8d6418ae96345b7667845c6e1b6a6b6e6228602f0a3b2ee529b03d9fb5f1d3ce3#npm:1.0.1-rc.8", {
+          "packageLocation": "./.yarn/__virtual__/@yarnpkg-esbuild-plugin-pnp-virtual-62fe7b13c0/0/cache/@yarnpkg-esbuild-plugin-pnp-npm-1.0.1-rc.8-ee52178308-7db5262caf.zip/node_modules/@yarnpkg/esbuild-plugin-pnp/",
+          "packageDependencies": [
+            ["@yarnpkg/esbuild-plugin-pnp", "virtual:b0f2f57492fe474cd7a30ac71f57e7b0b28b1ed84f72a736a0b9d1e7ab0b3cd8d6418ae96345b7667845c6e1b6a6b6e6228602f0a3b2ee529b03d9fb5f1d3ce3#npm:1.0.1-rc.8"],
+            ["@types/esbuild", null],
+            ["esbuild", "npm:0.13.2"],
+            ["tslib", "npm:1.14.1"]
+          ],
+          "packagePeers": [
+            "@types/esbuild",
+            "esbuild"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["abab", [
         ["npm:2.0.5", {
           "packageLocation": "./.yarn/cache/abab-npm-2.0.5-ae8d5b629e-0ec951b46d.zip/node_modules/abab/",
@@ -2778,6 +2805,175 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/err-code-npm-2.0.3-082e0ff9a7-8b7b1be20d.zip/node_modules/err-code/",
           "packageDependencies": [
             ["err-code", "npm:2.0.3"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["esbuild", [
+        ["npm:0.13.2", {
+          "packageLocation": "./.yarn/unplugged/esbuild-npm-0.13.2-eaca4bd3d8/node_modules/esbuild/",
+          "packageDependencies": [
+            ["esbuild", "npm:0.13.2"],
+            ["esbuild-android-arm64", "npm:0.13.2"],
+            ["esbuild-darwin-64", "npm:0.13.2"],
+            ["esbuild-darwin-arm64", "npm:0.13.2"],
+            ["esbuild-freebsd-64", "npm:0.13.2"],
+            ["esbuild-freebsd-arm64", "npm:0.13.2"],
+            ["esbuild-linux-32", "npm:0.13.2"],
+            ["esbuild-linux-64", "npm:0.13.2"],
+            ["esbuild-linux-arm", "npm:0.13.2"],
+            ["esbuild-linux-arm64", "npm:0.13.2"],
+            ["esbuild-linux-mips64le", "npm:0.13.2"],
+            ["esbuild-linux-ppc64le", "npm:0.13.2"],
+            ["esbuild-openbsd-64", "npm:0.13.2"],
+            ["esbuild-sunos-64", "npm:0.13.2"],
+            ["esbuild-windows-32", "npm:0.13.2"],
+            ["esbuild-windows-64", "npm:0.13.2"],
+            ["esbuild-windows-arm64", "npm:0.13.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["esbuild-android-arm64", [
+        ["npm:0.13.2", {
+          "packageLocation": "./.yarn/cache/esbuild-android-arm64-npm-0.13.2-bf8a26d62f-0200bc50c7.zip/node_modules/esbuild-android-arm64/",
+          "packageDependencies": [
+            ["esbuild-android-arm64", "npm:0.13.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["esbuild-darwin-64", [
+        ["npm:0.13.2", {
+          "packageLocation": "./.yarn/cache/esbuild-darwin-64-npm-0.13.2-0da42baf67-d2acb9ab7b.zip/node_modules/esbuild-darwin-64/",
+          "packageDependencies": [
+            ["esbuild-darwin-64", "npm:0.13.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["esbuild-darwin-arm64", [
+        ["npm:0.13.2", {
+          "packageLocation": "./.yarn/cache/esbuild-darwin-arm64-npm-0.13.2-bb76d95324-6dbeec9329.zip/node_modules/esbuild-darwin-arm64/",
+          "packageDependencies": [
+            ["esbuild-darwin-arm64", "npm:0.13.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["esbuild-freebsd-64", [
+        ["npm:0.13.2", {
+          "packageLocation": "./.yarn/cache/esbuild-freebsd-64-npm-0.13.2-967360bf4f-160305f9a3.zip/node_modules/esbuild-freebsd-64/",
+          "packageDependencies": [
+            ["esbuild-freebsd-64", "npm:0.13.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["esbuild-freebsd-arm64", [
+        ["npm:0.13.2", {
+          "packageLocation": "./.yarn/cache/esbuild-freebsd-arm64-npm-0.13.2-6d4df629a4-ba206d21c3.zip/node_modules/esbuild-freebsd-arm64/",
+          "packageDependencies": [
+            ["esbuild-freebsd-arm64", "npm:0.13.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["esbuild-linux-32", [
+        ["npm:0.13.2", {
+          "packageLocation": "./.yarn/cache/esbuild-linux-32-npm-0.13.2-011bb77d89-b3e6530835.zip/node_modules/esbuild-linux-32/",
+          "packageDependencies": [
+            ["esbuild-linux-32", "npm:0.13.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["esbuild-linux-64", [
+        ["npm:0.13.2", {
+          "packageLocation": "./.yarn/cache/esbuild-linux-64-npm-0.13.2-2b09ac62aa-909cc67a71.zip/node_modules/esbuild-linux-64/",
+          "packageDependencies": [
+            ["esbuild-linux-64", "npm:0.13.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["esbuild-linux-arm", [
+        ["npm:0.13.2", {
+          "packageLocation": "./.yarn/cache/esbuild-linux-arm-npm-0.13.2-9defc6b07d-fd52d5d5aa.zip/node_modules/esbuild-linux-arm/",
+          "packageDependencies": [
+            ["esbuild-linux-arm", "npm:0.13.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["esbuild-linux-arm64", [
+        ["npm:0.13.2", {
+          "packageLocation": "./.yarn/cache/esbuild-linux-arm64-npm-0.13.2-3d14ca2dbb-530184f1ec.zip/node_modules/esbuild-linux-arm64/",
+          "packageDependencies": [
+            ["esbuild-linux-arm64", "npm:0.13.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["esbuild-linux-mips64le", [
+        ["npm:0.13.2", {
+          "packageLocation": "./.yarn/cache/esbuild-linux-mips64le-npm-0.13.2-ed53de8d01-5c246361c0.zip/node_modules/esbuild-linux-mips64le/",
+          "packageDependencies": [
+            ["esbuild-linux-mips64le", "npm:0.13.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["esbuild-linux-ppc64le", [
+        ["npm:0.13.2", {
+          "packageLocation": "./.yarn/cache/esbuild-linux-ppc64le-npm-0.13.2-1db3840503-9c57004706.zip/node_modules/esbuild-linux-ppc64le/",
+          "packageDependencies": [
+            ["esbuild-linux-ppc64le", "npm:0.13.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["esbuild-openbsd-64", [
+        ["npm:0.13.2", {
+          "packageLocation": "./.yarn/cache/esbuild-openbsd-64-npm-0.13.2-51fe103def-c5b2300ba6.zip/node_modules/esbuild-openbsd-64/",
+          "packageDependencies": [
+            ["esbuild-openbsd-64", "npm:0.13.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["esbuild-sunos-64", [
+        ["npm:0.13.2", {
+          "packageLocation": "./.yarn/cache/esbuild-sunos-64-npm-0.13.2-945a952bc7-175aa33c85.zip/node_modules/esbuild-sunos-64/",
+          "packageDependencies": [
+            ["esbuild-sunos-64", "npm:0.13.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["esbuild-windows-32", [
+        ["npm:0.13.2", {
+          "packageLocation": "./.yarn/unplugged/esbuild-windows-32-npm-0.13.2-2bce8ee16b/node_modules/esbuild-windows-32/",
+          "packageDependencies": [
+            ["esbuild-windows-32", "npm:0.13.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["esbuild-windows-64", [
+        ["npm:0.13.2", {
+          "packageLocation": "./.yarn/unplugged/esbuild-windows-64-npm-0.13.2-2b55f87434/node_modules/esbuild-windows-64/",
+          "packageDependencies": [
+            ["esbuild-windows-64", "npm:0.13.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["esbuild-windows-arm64", [
+        ["npm:0.13.2", {
+          "packageLocation": "./.yarn/unplugged/esbuild-windows-arm64-npm-0.13.2-bdf56eb5aa/node_modules/esbuild-windows-arm64/",
+          "packageDependencies": [
+            ["esbuild-windows-arm64", "npm:0.13.2"]
           ],
           "linkType": "HARD",
         }]
@@ -5168,6 +5364,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["rollup", [
+        ["npm:2.57.0", {
+          "packageLocation": "./.yarn/cache/rollup-npm-2.57.0-076fc4de75-72427487d1.zip/node_modules/rollup/",
+          "packageDependencies": [
+            ["rollup", "npm:2.57.0"],
+            ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=1cc4b2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["run-parallel", [
         ["npm:1.2.0", {
           "packageLocation": "./.yarn/cache/run-parallel-npm-1.2.0-3f47ff2034-cb4f97ad25.zip/node_modules/run-parallel/",
@@ -5683,6 +5889,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["tslib", [
+        ["npm:1.14.1", {
+          "packageLocation": "./.yarn/cache/tslib-npm-1.14.1-102499115e-dbe628ef87.zip/node_modules/tslib/",
+          "packageDependencies": [
+            ["tslib", "npm:1.14.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["type-check", [
         ["npm:0.3.2", {
           "packageLocation": "./.yarn/cache/type-check-npm-0.3.2-a4a38bb0b6-dd3b149564.zip/node_modules/type-check/",
@@ -5791,15 +6006,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/types", "npm:7.15.0"],
             ["@swc/core", "npm:1.2.80"],
             ["@swc/jest", "virtual:b0f2f57492fe474cd7a30ac71f57e7b0b28b1ed84f72a736a0b9d1e7ab0b3cd8d6418ae96345b7667845c6e1b6a6b6e6228602f0a3b2ee529b03d9fb5f1d3ce3#npm:0.2.2"],
+            ["@tsconfig/node12", "npm:1.0.9"],
             ["@types/babel__generator", "npm:7.6.3"],
             ["@types/babel__template", "npm:7.4.1"],
             ["@types/babel__traverse", "npm:7.14.2"],
             ["@types/debug", "npm:4.1.7"],
             ["@types/node", "npm:16.7.1"],
             ["@vue/compiler-sfc", "npm:3.2.4"],
+            ["@yarnpkg/esbuild-plugin-pnp", "virtual:b0f2f57492fe474cd7a30ac71f57e7b0b28b1ed84f72a736a0b9d1e7ab0b3cd8d6418ae96345b7667845c6e1b6a6b6e6228602f0a3b2ee529b03d9fb5f1d3ce3#npm:1.0.1-rc.8"],
             ["debug", "virtual:c9bc8b4682dae1ac36fcb97c7fccfb86af01a1f6fc48eaf83d9bd00fb14f9e1f641a2409ef7e079b4e0ed4a16267412a60166cc456172f4a4f9469cc6ef7c07b#npm:4.3.2"],
+            ["esbuild", "npm:0.13.2"],
             ["fast-glob", "npm:3.2.7"],
             ["jest", "virtual:b0f2f57492fe474cd7a30ac71f57e7b0b28b1ed84f72a736a0b9d1e7ab0b3cd8d6418ae96345b7667845c6e1b6a6b6e6228602f0a3b2ee529b03d9fb5f1d3ce3#npm:27.0.6"],
+            ["rollup", "npm:2.57.0"],
             ["ts-node", "virtual:b0f2f57492fe474cd7a30ac71f57e7b0b28b1ed84f72a736a0b9d1e7ab0b3cd8d6418ae96345b7667845c6e1b6a6b6e6228602f0a3b2ee529b03d9fb5f1d3ce3#npm:10.2.1"],
             ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
           ],
